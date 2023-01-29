@@ -1,0 +1,133 @@
+[user]
+	name = Christophe Grosse
+	email = cgr789box-github@yahoo.com
+
+[core]
+        # use your favorite editor
+        editor = vim
+        # short revisions are 8 characters by default, use 12 to avoid collisions
+        abbrev = 12
+        # see "man less" for options
+        pager = less -RSX
+
+[pager]
+        # only enable pager for diff and log
+        diff = less -RSFX
+        branch = false
+        tag = false
+        describe = false
+        status = false
+
+[diff]
+        # detect renamed and copied files
+        renames = copies
+        # try to produce smaller diffs
+        algorithm = minimal
+        indentHeuristic = true
+        # always include a/ and b/ prefixes in unified diffs
+        noprefix = false
+
+[pretty]
+        fixes = Fixes: %h (\"%s\")
+        line = %C(auto)%h %C(auto,cyan)%>(5)%(trailers:only=true,key=PR,valueonly,unfold,separator=%x)%C(auto)%d %C(auto,reset)%s
+
+[trailer]
+        separators = :=
+
+[sendemail]
+        # sensible defaults, this requires a properly configured email system
+        envelopesender = auto
+        chainreplyto = false
+        confirm = always
+
+[alias]
+
+        # useful shortcuts, adjust to taste
+        l = log --pretty=line --topo-order
+        lfixes = log --pretty=fixes
+        chpick = cherry-pick -sex
+        s = status --short --branch
+        g = grep
+        ri = rebase -i
+        ra = rebase --abort
+        rc = rebase --continue
+        rp = reset -p HEAD^
+        ci = commit -s
+        ca = commit --amend
+        can = commit --amend --no-edit
+        co = checkout
+        w = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-web add
+        a = add -u
+        ap = add -p
+        wip = commit -asm 'wip'
+        lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+        lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)-     %an%C(reset) - %C(magenta)committed %C(bold magenta)%cr%C(reset) %C(magenta)by %C(bold magenta)%cn%C(reset)  ' --all
+        
+
+        # More advanced aliases
+
+        # $1 is used to get fixup commit ID and is also used as message. That
+        # way gitweb can put an hyperlink
+        cf = !git commit --fixup $1 --message
+
+
+[fetch]
+        # delete local branches that have been removed from remotes
+        prune = true
+
+[pull]
+        # automatically rebase on remote tracking branches
+        rebase = true
+
+[push]
+        # require to explicitly specify what you want to push
+        # to avoid pushing things by mistake
+        default = nothing
+
+[uploadArchive]
+        # allow running git archive --remote on non-tagged commits
+        allowUnreachable = true
+
+[commit]
+        # display diff when editing commit message
+        verbose = true
+
+[protocol]
+        # try to use a faster protocol if supported
+        version = 2
+
+[completion]
+        # avoid completion conflict with git reset
+        commands = -restore
+
+[rebase]
+        # automatically reorder commits based on Fixup: or Squash: prefixes
+        # when doing interactive rebase
+        autoSquash = true
+
+
+[log]
+        # display branch tips and tags in color
+        decorate = true
+        follow = true
+
+[grep]
+        linenumber = true
+
+[color]
+        diff = auto
+        ui = auto
+
+[color "grep"]
+        filename = magenta
+        lineNumber = green
+        separator = blue
+
+[color "grep-all-components"]
+        filename = magenta
+        component = green
+        branch = cyan
+
+[color "find-all-components"]
+        branch = magenta
+        component = green
