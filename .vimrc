@@ -1,7 +1,9 @@
-"":"so $VIMRUNTIME/syntax/colortest.vim
+":so $VIMRUNTIME/syntax/colortest.vim
 colorscheme elflord
 set colorcolumn=80
 highlight ColorColumn ctermbg=darkmagenta
+highlight Normal ctermbg=black
+highlight Terminal ctermbg=black
 
 set number
 set splitright
@@ -46,5 +48,5 @@ inoreabbrev malloc malloc(sizeof() * );<CR>if ( == NULL)<CR>return (-1);
 inoreabbrev .h <esc>BcW#include ""<esc><left>p<right>i.h<end>
 
 "autocommand
-autocmd BufNewFile *.c *.h :Stdheader "include 42 header when creating a file
+autocmd BufNewFile *.c,*.h :Stdheader "include 42 header when creating a file
 autocmd BufWritePre * :%s/[ \t]\+$//e "remove trailing spaces and tabs
