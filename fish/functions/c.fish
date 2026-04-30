@@ -1,3 +1,3 @@
 function c
-cc -Wall -Wextra -Werror
+    cc -Wall -Wextra -Werror $argv
 end

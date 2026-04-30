@@ -1,3 +1,3 @@
 function v
-valgrind
+    valgrind $argv
 end

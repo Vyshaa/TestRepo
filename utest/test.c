@@ -6,7 +6,7 @@
 /*   By: lgrosse <lgrosse@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 17:07:56 by lgrosse           #+#    #+#             */
-/*   Updated: 2026/04/21 17:40:31 by lgrosse          ###   ########.fr       */
+/*   Updated: 2026/04/30 12:58:51 by lgrosse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@
     file = __FILE__;\
     line = __LINE__;\
     if(ast) putchar('.'); else goto fail;\
+  } while(0)
+#define SOFTCHECK(ast)\
+  do {\
+    assertion = #ast;\
+    file = __FILE__;\
+    line = __LINE__;\
+    if(ast) putchar('.'); else printf("Test failed at %s:%d\n    %s: %s\n", file, line, test, assertion);\
+  } while(0)
+#define REQUIRE(ast)\
+  do {\
+    assertion = #ast;\
+    file = __FILE__;\
+    line = __LINE__;\
+    if(!(ast))  goto fail;\
   } while(0)
 
 int main() {
