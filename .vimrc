@@ -66,12 +66,12 @@ augroup C
     autocmd!
     autocmd FileType c inoreabbrev <buffer> main int main()<CR>{<CR>return 0;<CR>}<up><up>
 	autocmd FileType c inoreabbrev <buffer> h <esc>BcW#include ""<esc><left>p<right>i.h<end>
-	autocmd FileType c inoreabbrev <buffer> < <esc>BcW#include <lt>><esc><left>p<right>i.h<end>
+	autocmd FileType c inoreabbrev <buffer> <h <esc>BcW#include <lt>><esc><left>p<right>i.h<end>
 augroup END
 
 augroup markdown
 	autocmd!
-	autocmd FileType markdown inoreabbrev <buffer> . .<br />
+	autocmd FileType markdown inoremap <buffer> .<cr> .<br /><cr>
 augroup END
 
 augroup html
