@@ -58,7 +58,6 @@ inoremap <C-s> <esc>:w<CR>
 nnoremap <F2> :so ~/.vimrc<CR>
 inoremap <c-@> <c-n>
 nnoremap ; A;<Esc>
-nnoremap <c-t> :vertical :terminal<cr>
 nnoremap <c-x> :Ex<cr>
 
 "abbrev
@@ -82,3 +81,7 @@ augroup END
 "autocommand
 autocmd BufNewFile *.c,*.h :silent! Stdheader "include 42 header when creating a file
 autocmd BufWritePre * :%s/[ \t]\+$//e "remove trailing spaces and tabs
+
+"command
+command! Vterm vertical terminal
+command! T Vterm
